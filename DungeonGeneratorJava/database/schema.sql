@@ -23,7 +23,7 @@ create table users (--general user has ability to save npcs. admin can add trait
 
 create table npcs (
     npc_id serial primary key,
-    user_id int foreign key references users(user_id),
+    user_id int,
     appearance int, --all ints here refer to corresponding id columns
     high_ability int,
     low_ability int,
@@ -32,7 +32,8 @@ create table npcs (
     interaction_traits int,
     ideals int,
     bonds int,
-    flaws int
+    flaws int,
+    CONSTRAINT FK_user_id FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
 
 create table appearances (

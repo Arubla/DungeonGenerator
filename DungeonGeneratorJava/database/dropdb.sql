@@ -1,5 +1,5 @@
 SELECT pg_terminate_backend(pid)
 FROM pg_stat_activity
-WHERE datname = 'npc_creator';
+WHERE datname = 'dungeon_generator';
 
-DROP DATABASE npc_creator;
+DROP DATABASE dungeon_generator;
