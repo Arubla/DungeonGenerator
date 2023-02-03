@@ -16,7 +16,7 @@ create table users (--general user has ability to save npcs. admin can add trait
     user_id SERIAL,
     username varchar(50) NOT NULL UNIQUE,
     password_hash varchar(200) NOT NULL,
-    role varchar(50) NOT NULL,
+    is_admin bit NOT NULL, --0 for false, 1 for true
     CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
@@ -24,6 +24,7 @@ create table users (--general user has ability to save npcs. admin can add trait
 create table npcs (
     npc_id serial primary key,
     user_id int,
+    name varchar(50),
     appearance int, --all ints here refer to corresponding id columns
     high_ability int,
     low_ability int,
